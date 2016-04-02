@@ -18,6 +18,10 @@ public:
     void setWeighted(bool weighted);
     void setWeight(double weight);
 
+protected:
+    Edge* getNextEdge(void);
+    void setNextEdge(Edge *edge);
+
 private:
 
     int startVertex;
@@ -25,6 +29,7 @@ private:
     bool directed;
     bool weighted;
     double weight;
+    Edge *nextEdge = nullptr;
 };
 
 #endif // EDGE_H

@@ -17,6 +17,7 @@ private:
     int vertices;
     bool directed;
     bool weighted;
+    Edge **edgeList;
 
 };
 

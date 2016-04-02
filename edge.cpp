@@ -42,6 +42,7 @@ void Edge::setStart(int startVertex)
 }
 
 
+
 void Edge::setEnd(int endVertex)
 {
     this->endVertex= endVertex;
@@ -63,6 +64,18 @@ void Edge::setWeighted(bool weighted)
 void Edge::setWeight(double weight)
 {
     this->weight = weight;
+}
+
+
+Edge *Edge::getNextEdge()
+{
+    return this->nextEdge;
+}
+
+
+void Edge::setNextEdge(Edge *edge)
+{
+    this->nextEdge = edge;
 }
 
 
