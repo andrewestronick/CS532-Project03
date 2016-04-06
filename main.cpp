@@ -6,11 +6,11 @@ using namespace std;
 
 int main()
 {
-    Edge e;
-    e.setStart(1);
-    cout << "start=" << e.getStart() << endl;
+    Edge e(1,2);
 
-    // Graph g(5, 0, 0);
+    Graph g(5, 0, 0);
+
+    g.addEdge(e);
 
 
     return 0;

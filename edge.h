@@ -6,28 +6,29 @@ class Edge
 {
 public:
 
-    Edge();
+    Edge(int start, int end);
+    Edge(int start, int end, int weight);
+    Edge(const Edge &e);
+    init(int start, int end);
     int getStart(void);
     int getEnd(void);
     bool isDirected(void);
     bool isWeighted(void);
     double getWeight(void);
-    void setStart(int startVertex);
-    void setEnd(int endVertex);
+    void setStart(int start);
+    void setEnd(int end);
     void setDirected(bool directed);
     void setWeighted(bool weighted);
     void setWeight(double weight);
-
-protected:
     Edge* getNextEdge(void);
-    void setNextEdge(Edge *edge);
+    void setNextEdge(Edge *e);
 
 private:
 
-    int startVertex;
-    int endVertex;
+    int start;
+    int end;
     bool directed;
-    bool weighted;
+    bool weighted = false;
     double weight;
     Edge *nextEdge = nullptr;
 };

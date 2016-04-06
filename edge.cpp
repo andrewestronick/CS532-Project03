@@ -1,20 +1,48 @@
 #include "edge.h"
 
-Edge::Edge()
-{
 
+Edge::Edge(int start, int end)
+{
+    init(start, end);
+}
+
+
+Edge::Edge(int start, int end, int weight)
+{
+    weighted = true;
+    this->weight = weight;
+    init(start, end);
+}
+
+
+Edge::Edge(const Edge &e)
+{
+    if(e.weighted)
+    {
+        weighted = true;
+        weight = e.weight;
+        init(e.start, e.end);
+    }
+    else
+        init(e.start, e.end);
+}
+
+Edge::init(int start, int end)
+{
+    this->start = start;
+    this->end = end;
 }
 
 
 int Edge::getStart()
 {
-    return startVertex;
+    return start;
 }
 
 
 int Edge::getEnd()
 {
-    return endVertex;
+    return end;
 }
 
 
@@ -36,16 +64,16 @@ double Edge::getWeight()
 }
 
 
-void Edge::setStart(int startVertex)
+void Edge::setStart(int start)
 {
-    this->startVertex = startVertex;
+    this->start = start;
 }
 
 
 
-void Edge::setEnd(int endVertex)
+void Edge::setEnd(int end)
 {
-    this->endVertex= endVertex;
+    this->end = end;
 }
 
 
@@ -73,9 +101,9 @@ Edge *Edge::getNextEdge()
 }
 
 
-void Edge::setNextEdge(Edge *edge)
+void Edge::setNextEdge(Edge *e)
 {
-    this->nextEdge = edge;
+    this->nextEdge = e;
 }
 
 

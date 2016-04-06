@@ -6,6 +6,7 @@ class Graph
 {
 public:
     Graph(int n, bool directed, bool weighted);
+    ~Graph();
     void addEdge(Edge e);
     void getAdjecentList(int v);
     Edge getEdge(int v1, int v2);
@@ -17,7 +18,8 @@ private:
     int vertices;
     bool directed;
     bool weighted;
-    Edge **edgeList;
+    int stack = 0;
+    Edge** edgeList;
 
 };
 
