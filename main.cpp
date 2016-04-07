@@ -10,9 +10,6 @@ int main()
 
     Graph g(5, 0, 0);
 
-    g.addEdge(e);
-
-
     return 0;
 }
 

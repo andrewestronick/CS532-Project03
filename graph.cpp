@@ -2,32 +2,25 @@
 
 Graph::Graph(int n, bool directed, bool weighted)
 {
-    edgeList = new Edge*[n];
-    for(int i = 0; i < n; ++i)
-        edgeList[i]=nullptr;
-
+    size = n;
+    vertices = new Edge*[size];
     this->directed = directed;
     this->weighted = weighted;
+
 
 }
 
 
 Graph::~Graph()
 {
-    for(int i = 0; i <stack; ++i )
-        delete edgeList[i];
-
-    delete edgeList;
+    delete vertices;
 }
 
-
-void Graph::addEdge(Edge e)
+void Graph::addEdge(const Edge &e)
 {
-   if(stack == vertices)
-       return;
-
-   edgeList[stack++] = new Edge(e);
+    edge.emplace_back(e);
 }
+
 
 
 

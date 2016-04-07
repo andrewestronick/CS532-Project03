@@ -27,7 +27,7 @@ Edge::Edge(const Edge &e)
         init(e.start, e.end);
 }
 
-Edge::init(int start, int end)
+void Edge::init(int start, int end)
 {
     this->start = start;
     this->end = end;
@@ -95,16 +95,6 @@ void Edge::setWeight(double weight)
 }
 
 
-Edge *Edge::getNextEdge()
-{
-    return this->nextEdge;
-}
-
-
-void Edge::setNextEdge(Edge *e)
-{
-    this->nextEdge = e;
-}
 
 
 

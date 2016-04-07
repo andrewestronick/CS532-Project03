@@ -1,5 +1,6 @@
 #ifndef GRAPH_H
 #define GRAPH_H
+#include<vector>
 #include "edge.h"
 
 class Graph
@@ -7,7 +8,7 @@ class Graph
 public:
     Graph(int n, bool directed, bool weighted);
     ~Graph();
-    void addEdge(Edge e);
+    void addEdge(const Edge &e);
     void getAdjecentList(int v);
     Edge getEdge(int v1, int v2);
     int getNumVertices(void);
@@ -15,12 +16,11 @@ public:
 
 
 private:
-    int vertices;
+    Edge** vertices;
+    int size;
     bool directed;
     bool weighted;
-    int stack = 0;
-    Edge** edgeList;
-
+    std::vector<Edge> edge;
 };
 
 #endif // GRAPH_H

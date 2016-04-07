@@ -9,7 +9,7 @@ public:
     Edge(int start, int end);
     Edge(int start, int end, int weight);
     Edge(const Edge &e);
-    init(int start, int end);
+    void init(int start, int end);
     int getStart(void);
     int getEnd(void);
     bool isDirected(void);
@@ -20,8 +20,6 @@ public:
     void setDirected(bool directed);
     void setWeighted(bool weighted);
     void setWeight(double weight);
-    Edge* getNextEdge(void);
-    void setNextEdge(Edge *e);
 
 private:
 
@@ -30,7 +28,6 @@ private:
     bool directed;
     bool weighted = false;
     double weight;
-    Edge *nextEdge = nullptr;
 };
 
 #endif // EDGE_H
