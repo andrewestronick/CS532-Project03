@@ -1,7 +1,9 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 #include<vector>
+#include<iostream>
 #include "edge.h"
+#include "node.h"
 
 class Graph
 {
@@ -13,10 +15,11 @@ public:
     Edge getEdge(int v1, int v2);
     int getNumVertices(void);
     int getNumEdges(void);
+    void printEdges(void);
 
 
 private:
-    Edge** vertices;
+    Node** vertices;
     int size;
     bool directed;
     bool weighted;
