@@ -3,11 +3,17 @@
 #include<vector>
 #include<iostream>
 #include "edge.h"
-#include "node.h"
+
+struct Node
+{
+    Edge *edge = nullptr;
+    Node *next = nullptr;
+};
 
 class Graph
 {
 public:
+
     Graph(int n, bool directed, bool weighted);
     ~Graph();
     void addEdge(const Edge &e);
@@ -19,11 +25,13 @@ public:
 
 
 private:
-    Node** vertices;
+
+    Node **vertices;
     int size;
     bool directed;
     bool weighted;
     std::vector<Edge> edge;
+
 };
 
 #endif // GRAPH_H
