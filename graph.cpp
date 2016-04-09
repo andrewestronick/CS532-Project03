@@ -20,14 +20,69 @@ Graph::~Graph()
 
 void Graph::addEdge(const Edge &e)
 {
-    edge.emplace_back(e);
     Node *node = new Node;
-    node->edge = &edge.back();
+    node->edge = new Edge(e);
 
     insertNode(node->edge->getStart(), node);
+
     if(!directed)
-        insertNode(node->edge->getEnd(), node);
+    {
+        Node *rnode = new Node;
+        rnode->edge = new Edge(e.getEnd(), e.getStart(), e.getWeight());
+
+        insertNode(rnode->edge->getStart(), rnode);
+    }
 }
+
+
+std::vector<Edge> Graph::getAdjecentList(int v)
+{
+    Node *ptr = vertices[v];
+    std::vector<Edge> list;
+
+    if(nullptr == ptr)
+        return list;
+
+    do
+    {
+        list.emplace_back(Edge(ptr->edge));
+        ptr = ptr->next;
+    } while(ptr != nullptr);
+
+    return list;
+}
+
+
+Edge Graph::getEdge(int v1, int v2)
+{
+    if(nullptr == vertices[v1])
+        return nullptr;
+
+    Node *ptr = vertices[v1];
+
+    while(ptr->next != nullptr)
+    {
+        if(ptr->edge->getEnd() == v2)
+            return Edge(ptr->edge);
+
+        ptr = ptr->next;
+    }
+
+    return nullptr;
+}
+
+
+int Graph::getNumVertices() const
+{
+    return size;
+}
+
+
+int Graph::getNumEdges() const
+{
+    return edges;
+}
+
 
 void Graph::insertNode(int vertex, Node *node)
 {
@@ -42,16 +97,7 @@ void Graph::insertNode(int vertex, Node *node)
             ptr = ptr->next;
         ptr->next = node;
     }
-}
-
-
-void Graph::printEdges()
-{
-    for(unsigned i = 0; i < edge.size(); ++i)
-    {
-        std::cout << "Edge(" << i << ") start=" << edge[i].getStart();
-        std::cout << "   end=" << edge[i].getEnd() << std::endl;
-    }
+    ++edges;
 }
 
 
@@ -60,21 +106,13 @@ void Graph::printLinkedListArray()
     for(int i = 0; i < size; ++i)
     {
         std::cout << "V[" << i << "]-->";
-
-        if(nullptr == vertices[i])
-            std::cout << "NULL" << std::endl;
-        else
+        Node *ptr = vertices[i];
+        while(ptr != nullptr)
         {
-            Node *ptr = vertices[i];
-
-            while(ptr != nullptr)
-            {
-                std::cout << "(start=" << ptr->edge->getStart() << " end=" << ptr->edge->getEnd() << ")-->";
-                ptr = ptr->next;
-            }
-
-            std::cout << "NULL" << std::endl;
+            std::cout << "(start=" << ptr->edge->getStart() << " end=" << ptr->edge->getEnd() << ")-->";
+            ptr = ptr->next;
         }
+        std::cout << "NULL" << std::endl;
     }
 }
 

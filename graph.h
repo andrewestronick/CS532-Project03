@@ -1,7 +1,7 @@
 #ifndef GRAPH_H
 #define GRAPH_H
-#include<vector>
 #include<iostream>
+#include<vector>
 #include "edge.h"
 
 struct Node
@@ -17,23 +17,20 @@ public:
     Graph(int n, bool directed, bool weighted);
     ~Graph();
     void addEdge(const Edge &e);
-    void getAdjecentList(int v);
+    std::vector<Edge> getAdjecentList(int v);
     Edge getEdge(int v1, int v2);
-    int getNumVertices(void);
-    int getNumEdges(void);
+    int getNumVertices(void) const;
+    int getNumEdges(void) const;
     void insertNode(int vertex, Node *node);
-    void printEdges(void);
     void printLinkedListArray(void);
-
 
 private:
 
     Node **vertices;
     int size;
+    int edges = 0;
     bool directed;
     bool weighted;
-    std::vector<Edge> edge;
-
 };
 
 #endif // GRAPH_H

@@ -1,7 +1,7 @@
 #include "edge.h"
 
 
-Edge::Edge(int start, int end)
+Edge::Edge(const int start, const int end)
 {
     init(start, end);
 }
@@ -9,7 +9,6 @@ Edge::Edge(int start, int end)
 
 Edge::Edge(int start, int end, int weight)
 {
-    weighted = true;
     this->weight = weight;
     init(start, end);
 }
@@ -17,15 +16,17 @@ Edge::Edge(int start, int end, int weight)
 
 Edge::Edge(const Edge &e)
 {
-    if(e.weighted)
-    {
-        weighted = true;
         weight = e.weight;
         init(e.start, e.end);
-    }
-    else
-        init(e.start, e.end);
 }
+
+
+Edge::Edge(Edge *e)
+{
+    weight = e->getWeight();
+    init(e->getStart(), e->getEnd());
+}
+
 
 void Edge::init(int start, int end)
 {
@@ -34,31 +35,19 @@ void Edge::init(int start, int end)
 }
 
 
-int Edge::getStart()
+int Edge::getStart() const
 {
     return start;
 }
 
 
-int Edge::getEnd()
+int Edge::getEnd() const
 {
     return end;
 }
 
 
-bool Edge::isDirected()
-{
-    return directed;
-}
-
-
-bool Edge::isWeighted()
-{
-    return weighted;
-}
-
-
-double Edge::getWeight()
+double Edge::getWeight() const
 {
     return weight;
 }
@@ -70,22 +59,9 @@ void Edge::setStart(int start)
 }
 
 
-
 void Edge::setEnd(int end)
 {
     this->end = end;
-}
-
-
-void Edge::setDirected(bool directed)
-{
-    this->directed = directed;
-}
-
-
-void Edge::setWeighted(bool weighted)
-{
-    this->weighted = weighted;
 }
 
 
@@ -93,8 +69,3 @@ void Edge::setWeight(double weight)
 {
     this->weight = weight;
 }
-
-
-
-
-
