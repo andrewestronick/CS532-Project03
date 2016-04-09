@@ -21,7 +21,9 @@ public:
     Edge getEdge(int v1, int v2);
     int getNumVertices(void);
     int getNumEdges(void);
+    void insertNode(int vertex, Node *node);
     void printEdges(void);
+    void printLinkedListArray(void);
 
 
 private:
