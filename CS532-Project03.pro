@@ -5,9 +5,13 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     edge.cpp \
-    graph.cpp
+    graph.cpp \
+    breadthfirsttraversal.cpp \
+    depthfirsttraversal.cpp
 
 HEADERS += \
     edge.h \
-    graph.h
+    graph.h \
+    breadthfirsttraversal.h \
+    depthfirsttraversal.h
 
