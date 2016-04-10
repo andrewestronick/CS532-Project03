@@ -65,4 +65,5 @@ void test(const std::string file)
 
 
     }
+    fin.close();
 }
