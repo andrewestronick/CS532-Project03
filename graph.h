@@ -1,7 +1,10 @@
+// Andrew Estronick
+// April 10th, 2016
+// Computer Science 532 - Advanced Data Structures
+
 #ifndef GRAPH_H
 #define GRAPH_H
-#include<iostream>
-#include<vector>
+#include <vector>
 #include "edge.h"
 
 struct Node
@@ -22,7 +25,6 @@ public:
     int getNumVertices(void) const;
     int getNumEdges(void) const;
     void insertNode(int vertex, Node *node);
-    void printLinkedListArray(void);
 
 private:
 

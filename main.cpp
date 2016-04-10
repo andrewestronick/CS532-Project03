@@ -1,7 +1,11 @@
-#include<iostream>
-#include<fstream>
-#include<vector>
-#include<string>
+// Andrew Estronick
+// April 10th, 2016
+// Computer Science 532 - Advanced Data Structures
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
 #include "edge.h"
 #include "graph.h"
 #include "breadthfirsttraversal.h"

@@ -1,9 +1,13 @@
+// Andrew Estronick
+// April 10th, 2016
+// Computer Science 532 - Advanced Data Structures
+
 #ifndef BREADTHFIRSTTRAVERSAL_H
 #define BREADTHFIRSTTRAVERSAL_H
 
-#include<iostream>
-#include<queue>
-#include<vector>
+#include <iostream>
+#include <queue>
+#include <vector>
 #include "graph.h"
 #include "edge.h"
 

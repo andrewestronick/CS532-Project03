@@ -1,5 +1,9 @@
+// Andrew Estronick
+// April 10th, 2016
+// Computer Science 532 - Advanced Data Structures
+
 #include "graph.h"
-#include <typeinfo>
+
 
 Graph::Graph(int n, bool directed, bool weighted)
 {
@@ -114,23 +118,3 @@ void Graph::insertNode(int vertex, Node *node)
     }
     ++edges;
 }
-
-
-void Graph::printLinkedListArray()
-{
-    for(int i = 0; i < size; ++i)
-    {
-        std::cout << "V[" << i << "]-->";
-        Node *ptr = vertices[i];
-        while(ptr != nullptr)
-        {
-            std::cout << "(start=" << ptr->edge->getStart() << " end=" << ptr->edge->getEnd() << ")-->";
-            ptr = ptr->next;
-        }
-        std::cout << "NULL" << std::endl;
-    }
-}
-
-
-
-

@@ -1,31 +1,12 @@
+// Andrew Estronick
+// April 10th, 2016
+// Computer Science 532 - Advanced Data Structures
+
 #include "breadthfirsttraversal.h"
+
 
 BreadthFirstTraversal::BreadthFirstTraversal(Graph &g, int start)
 {
-/*
-void BFS(start)
-{
-    for all vertices v
-        v.visited = false;
-
-    start.visited = true;
-    initialize a queue Q;
-    Q.enqueue(start);
-
-    while (Q is not empty)
-    {
-        v = Q.dequeue();
-        pre_visit(v);
-        for each vertex k adjacent to v
-        {
-            if (k.visited) continue;
-            k.visited = true;
-            Q.enqueue(k);
-        }
-        post_visit(v);
-    }
-}
-*/
     int size = g.getNumVertices();
     vertices = new bool[size];
     for(int i = 0; i < size; ++i)

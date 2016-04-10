@@ -1,3 +1,7 @@
+// Andrew Estronick
+// April 10th, 2016
+// Computer Science 532 - Advanced Data Structures
+
 #include "edge.h"
 
 

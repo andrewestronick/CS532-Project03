@@ -1,30 +1,12 @@
+// Andrew Estronick
+// April 10th, 2016
+// Computer Science 532 - Advanced Data Structures
+
 #include "depthfirsttraversal.h"
+
 
 DepthFirstTraversal::DepthFirstTraversal(Graph &g, int start)
 {
-/*
-void DFS(start)
-{
-    for all vertices v
-        v.visited = false;
-
-    RDFS(start);
-}
-
-void RDFS(v)
-{
-    pre_visit(v);
-    v.visited = true;
-
-    for each vertex k adjacent to v
-    {
-        if (k.visited) continue;
-        RDFS(k);
-    }
-
-    post_visit(v);
-}
-*/
     int size = g.getNumVertices();
     vertices = new bool[size];
     for(int i = 0; i < size; ++i)

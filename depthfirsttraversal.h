@@ -1,8 +1,12 @@
+// Andrew Estronick
+// April 10th, 2016
+// Computer Science 532 - Advanced Data Structures
+
 #ifndef DEPTHFIRSTTRAVERSAL_H
 #define DEPTHFIRSTTRAVERSAL_H
 
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 #include "graph.h"
 
 class DepthFirstTraversal
