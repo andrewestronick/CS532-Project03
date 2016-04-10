@@ -15,6 +15,20 @@ Graph::Graph(int n, bool directed, bool weighted)
 
 Graph::~Graph()
 {
+    for(int i = 0; i < size; ++i)
+    {
+        if(nullptr == vertices[i])
+            continue;
+
+        Node *ptr2, *ptr1 = vertices[i];
+        while(ptr1 != nullptr)
+        {
+            delete ptr1->edge;
+            ptr2 = ptr1;
+            ptr1 = ptr1->next;
+            delete ptr2;
+        }
+    }
     delete vertices;
 }
 
@@ -37,11 +51,11 @@ void Graph::addEdge(const Edge &e)
 
 std::vector<Edge> Graph::getAdjecentList(int v)
 {
-    Node *ptr = vertices[v];
     std::vector<Edge> list;
-
-    if(nullptr == ptr)
+    if(nullptr == vertices[v])
         return list;
+
+    Node *ptr = vertices[v];
 
     do
     {
@@ -49,6 +63,7 @@ std::vector<Edge> Graph::getAdjecentList(int v)
         ptr = ptr->next;
     } while(ptr != nullptr);
 
+    delete ptr;
     return list;
 }
 
